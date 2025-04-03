@@ -18,10 +18,20 @@
             color: white;
             font-size: 24px;
         }
+        nav {
+            background-color: #ffb6c1;
+            padding: 10px;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
         .container {
             padding: 20px;
         }
-        .offer {
+        .offer, .section {
             background: white;
             margin: 20px;
             padding: 15px;
@@ -51,39 +61,64 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        .hidden {
+            display: none;
+        }
     </style>
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(id).classList.remove('hidden');
+        }
+    </script>
 </head>
 <body>
     <header>
         🦄 Louez votre Licorne de Rêve !
     </header>
     
-    <div class="container">
-        <div class="offer">
-            <h2>Licorne Magique</h2>
-            <p>Une licorne majestueuse avec une crinière arc-en-ciel.</p>
-            <p><strong>Prix : 100€/jour</strong></p>
-        </div>
-        <div class="offer">
-            <h2>Licorne Volante</h2>
-            <p>Elle peut voler au-dessus des arcs-en-ciel !</p>
-            <p><strong>Prix : 150€/jour</strong></p>
-        </div>
-        <div class="offer">
-            <h2>Licorne Mystique</h2>
-            <p>Dotée de pouvoirs magiques pour exaucer vos rêves.</p>
-            <p><strong>Prix : 200€/jour</strong></p>
-        </div>
-    </div>
+    <nav>
+        <a href="#" onclick="showSection('about')">Qui sommes-nous?</a>
+        <a href="#" onclick="showSection('services')">Nos services</a>
+        <a href="#" onclick="showSection('contact')">Nous contacter</a>
+    </nav>
     
     <div class="container">
-        <h2>Contactez-nous</h2>
-        <form>
-            <input type="text" placeholder="Votre nom" required><br>
-            <input type="email" placeholder="Votre email" required><br>
-            <textarea placeholder="Votre message" rows="4" required></textarea><br>
-            <button type="submit">Envoyer</button>
-        </form>
+        <div id="about" class="section">
+            <h2>Qui sommes-nous?</h2>
+            <p>Licorne Rent est une société spécialisée dans la location de licornes pour tous types d'événements. Nous mettons à votre disposition des licornes magiques et majestueuses pour rendre vos moments inoubliables.</p>
+        </div>
+        
+        <div id="services" class="section hidden">
+            <h2>Nos services</h2>
+            <div class="offer">
+                <h3>Mariage</h3>
+                <p>Rendez votre mariage féerique avec une licorne majestueuse qui accompagnera votre cérémonie.</p>
+            </div>
+            <div class="offer">
+                <h3>Anniversaire</h3>
+                <p>Offrez une surprise inoubliable avec une licorne magique pour l'anniversaire de votre enfant.</p>
+            </div>
+            <div class="offer">
+                <h3>Baptême</h3>
+                <p>Ajoutez une touche enchantée à la célébration du baptême de votre enfant avec une licorne douce et bienveillante.</p>
+            </div>
+        </div>
+        
+        <div id="contact" class="section hidden">
+            <h2>Nous contacter</h2>
+            <p>Email : contact@licornerent.com</p>
+            <p>Téléphone : +33 6 12 34 56 78</p>
+            <p>Adresse : 123 Rue de la Magie, 75000 Paris</p>
+            <form>
+                <input type="text" placeholder="Votre nom" required><br>
+                <input type="email" placeholder="Votre email" required><br>
+                <textarea placeholder="Votre message" rows="4" required></textarea><br>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
     </div>
     
     <footer>
@@ -91,3 +126,4 @@
     </footer>
 </body>
 </html>
+
